@@ -3,7 +3,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Practice
 {
-    public class PR1
+    public class Task1
     {
         public delegate double MathOperation(double a, double b);
         public void Example()

@@ -7,8 +7,8 @@ namespace Practice
     {
         static void Main()
         {
-            PR1 pr1 = new PR1();
-            pr1.Example();
+            Task1 task1 = new Task1();
+            task1.Example();
 
             Console.WriteLine("\n");
 
