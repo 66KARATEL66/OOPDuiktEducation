@@ -9,6 +9,13 @@ namespace Practice
         {
             PR1 pr1 = new PR1();
             pr1.Example();
+
+            Console.WriteLine("\n");
+
+            Task2 task2 = new Task2();
+            task2.Example();
+
+            Console.WriteLine("\n");
         }
     }
 }
