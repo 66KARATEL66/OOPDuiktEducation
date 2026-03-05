@@ -8,7 +8,13 @@ namespace pr2.Systems
 {
     public class Display
     {
-        public int Id;
+        public Guid Id { get; } = Guid.NewGuid();
+        public string Name { get; set; }
+
+        public Display(string name)
+        {
+            Name = name;
+        }
 
         public void ShowTemperature(double temperature)
         {

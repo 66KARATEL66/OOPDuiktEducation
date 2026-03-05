@@ -1,6 +1,7 @@
 ﻿using pr2.Services;
 using pr2.Systems;
 using pr2.ClimateSettings;
+using pr2.Entities;
 
 namespace pr2
 {
@@ -24,17 +25,20 @@ namespace pr2
                 safetySettings = new SafetySettings(0, 50)
             };
 
-            using RoomService livingRoomOne = new RoomService(new Sensor(), roomConfig);
-            using RoomService serverRoomOne = new RoomService(new Sensor(), serverConfig);
+            using Room livingRoomOne = new Room("Living Room 1", roomConfig);
+            using Room serverRoomOne = new Room("Server Room 1", serverConfig);
+
+            //using RoomService livingRoomOne = new RoomService(new Sensor(), roomConfig);
+            //using RoomService serverRoomOne = new RoomService(new Sensor(), serverConfig);
             while (true)
             {
                 Console.WriteLine("Living room 1:");
-                livingRoomOne.GetTemperature();
+                livingRoomOne.Sensor.GetTemperature();
 
                 Console.WriteLine("\n");
 
                 Console.WriteLine("Server room 2:");
-                serverRoomOne.GetTemperature(); 
+                serverRoomOne.Sensor.GetTemperature(); 
 
 
                 Console.WriteLine("\n");

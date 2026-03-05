@@ -10,7 +10,14 @@ namespace pr2.Systems
     {
         public event EventHandler<TemperatureEventArgs> TemperatureChanged;
 
-        private double _temperature;
+        public double _temperature { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
+        public string Name { get; set; }
+
+        public Sensor(string name)
+        {
+            Name = name;
+        }
 
         public void GetTemperature()
         {
