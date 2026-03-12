@@ -7,21 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="650">
 
-    <TabControl>
-        <TabItem Header="Room 1">
-            <Grid>
-                <StackPanel>
-                    <Slider x:Name="TemperatureSlider" Minimum="-30" Maximum="50" ValueChanged="TemperatureSlider_ValueChanged" Height="24" Width="348"/>
-                    <TextBlock x:Name="TemperatureText" Text="Temperature:" FontSize="26"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Test 1" FontSize="24" Width="100" Margin="20, 5"/>
-                        <Button Content="Test 2" FontSize="24" Width="100" Margin="20, 5"/>
-                        <Button Content="Test 3" FontSize="24" Width="100" Margin="20, 5"/>
-                    </StackPanel>
-                    <TextBlock Text="Logs:" FontSize="26" Margin="0, 20, 0, 5"/>
-                    <ListBox x:Name="LogList" Height="Auto" Width="Auto"/>
-                </StackPanel>
-            </Grid>
-        </TabItem>
+    <TabControl x:Name="RoomsTabControl">
+        
     </TabControl>
 </Window>

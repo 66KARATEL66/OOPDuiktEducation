@@ -32,12 +32,12 @@ namespace pr2.Entities
             ACDevice = new AirConditioner($"{Name} AC");
             SecurityDevice = new SecuritySystem($"{Name} Alert");
             Sensor = new Sensor($"{Name} Sensor");
-            Display = new Display($"{Name} Alert");
 
             ACService = new ACService(Sensor, ACDevice, RoomConfiguration);
             SecuritySystemService = new SecuritySystemService(Sensor, SecurityDevice, RoomConfiguration);
 
-            DisplayService = new DisplayService(Name, Sensor, ACDevice, SecuritySystemService, Display);
+            DisplayService = new DisplayService(Name, Sensor, ACDevice, SecurityDevice);
+            Display = new Display($"{Name} Alert", DisplayService);
         }
 
         public void Dispose()

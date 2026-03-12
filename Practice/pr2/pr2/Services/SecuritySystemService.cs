@@ -26,8 +26,9 @@ namespace pr2.Services
 
         private void SecuritySystemLogic(object? sender, TemperatureEventArgs e)
         {
-            if (e.Temperature < _roomConfiguration.safetySettings._minTemperature) _securityDevice.FreezingWarning();
-            else if (e.Temperature > _roomConfiguration.safetySettings._maxTemperature) _securityDevice.OverheatingWarning();
+            if (e.Temperature < _roomConfiguration.safetySettings._minTemperature) _securityDevice.SetMode(Enums.SecuritySystemWarning.FreezingWarning);
+            else if (e.Temperature > _roomConfiguration.safetySettings._maxTemperature) _securityDevice.SetMode(Enums.SecuritySystemWarning.OverHeatingWarning);
+            else _securityDevice.SetMode(Enums.SecuritySystemWarning.None);
         }
 
         public void Dispose()

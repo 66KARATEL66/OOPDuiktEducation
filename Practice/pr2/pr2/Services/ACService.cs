@@ -26,9 +26,9 @@ namespace pr2.Services
 
         private void AirConditionerLogic(object? sender, TemperatureEventArgs e)
         {
-            if (e.Temperature < _roomConfiguration.comfortSettings._minTemperature && _roomConfiguration.isHeatingAllowed) _airConditioner.HeatingOn();
-            else if (e.Temperature > _roomConfiguration.comfortSettings._maxTemperature) _airConditioner.CoolingOn();
-            else _airConditioner.Stop();
+            if (e.Temperature < _roomConfiguration.comfortSettings._minTemperature && _roomConfiguration.isHeatingAllowed) _airConditioner.SetMode(Enums.AirConditionerMode.Heating);
+            else if (e.Temperature > _roomConfiguration.comfortSettings._maxTemperature) _airConditioner.SetMode(Enums.AirConditionerMode.Cooling);
+            else _airConditioner.SetMode(Enums.AirConditionerMode.Off);
         }
 
         public void Dispose()
