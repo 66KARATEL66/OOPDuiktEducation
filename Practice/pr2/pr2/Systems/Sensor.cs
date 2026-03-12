@@ -17,13 +17,19 @@ namespace pr2.Systems
         public Sensor(string name)
         {
             Name = name;
+            GetTemperature();
+        }
+        
+        public void SetTemperature(double temperature)
+        {
+            _temperature = temperature;
+            TemperatureChanged?.Invoke(this, new TemperatureEventArgs(_temperature));
         }
 
         public void GetTemperature()
         {
             Random random = new Random();
-            _temperature = random.Next(-10, 50);
-            TemperatureChanged?.Invoke(this, new TemperatureEventArgs(_temperature));
+            _temperature = random.Next(-20, 50);
         }
     }
 

@@ -10,5 +10,4 @@ namespace ControllerTester
     public partial class App : Application
     {
     }
-
 }
