@@ -13,7 +13,11 @@
             /*Task3 task3 = new Task3();
             task3.Example("E:\\Photos");*/
 
-            Task4.Example("C:\\Users\\push3\\Documents\\github\\OOPDuiktEducation\\Practice\\pr3\\pr3\\Task4TestFolder\\SampleCopy");
+            /*Task4.Example("C:\\Users\\push3\\Documents\\github\\OOPDuiktEducation\\Practice\\pr3\\pr3\\Task4TestFolder\\SampleCopy");*/
+
+            /*Task4WithoutRecurtion.ExampleWithoutStructure("C:\\Users\\push3\\Documents\\github\\OOPDuiktEducation\\Practice\\pr3\\pr3\\Task4TestFolder\\SampleCopy");*/
+
+            Task4WithoutRecurtion.ExampleWithStructure("C:\\Users\\push3\\Documents\\github\\OOPDuiktEducation\\Practice\\pr3\\pr3\\Task4TestFolder\\SampleCopy");
         }
     }
 }

@@ -37,10 +37,19 @@ namespace pr3
         {
             Console.WriteLine($"Are you sure you want to delete cache: {path}? (yes/no)");
             string input = Console.ReadLine();
-            if(input.ToLower() == "yes")
-                { Search(path); }
+            if (input.ToLower() == "yes")
+            {
+                Console.WriteLine($"Type DELETE to confirm:");
+                input = Console.ReadLine();
+                if (input == "DELETE")
+                {
+                    Search(path);
+                }
+                else
+                    { Console.WriteLine("Operation cancelled."); return; }
+            }
             else
-                {Console.WriteLine("Operation cancelled."); return; }
+                { Console.WriteLine("Operation cancelled."); return; }
             Console.WriteLine($"Cache is cleaned; Files deleted = {filesDeleted}, Deleted files size is {filesSize} bytes");
         }
     }
