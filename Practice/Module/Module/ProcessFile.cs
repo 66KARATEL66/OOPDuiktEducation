@@ -8,13 +8,13 @@ namespace Module
 {
     public static class ProcessFile
     {
-        private static string resultFilePath = "C:\\Users\\Ilya\\Documents\\GitHub\\OOPDuiktEducation\\Practice\\Module\\Module\\files\\resultPD25.txt";
-        public static void ProcessFileWithDelegate(string filePath, TextOperation.TextOperationDelegate operation)
+        private static string resultFilePath = "..\\..\\..\\files\\resultPD25.txt";
+        public static void ProcessFileWithDelegate<T>(string filePath, TextOperation.TextOperationDelegate<T> operation)
         {
             try
             {
                 string content = File.ReadAllText(Path.GetFullPath(filePath));
-                string result = operation(content);
+                T result = operation(content);
                 File.AppendAllText(resultFilePath, result.ToString() + "\n");
             }
             catch (Exception ex)

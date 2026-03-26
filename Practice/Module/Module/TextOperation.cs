@@ -8,21 +8,21 @@ namespace Module
 {
     public static class TextOperation
     {
-        public delegate string TextOperationDelegate(string text);
+        public delegate T TextOperationDelegate<T>(string text);
 
         public static string ToUpperCase(string text)
         {
             return text.ToUpper();
         }
 
-        public static string CharCount(string text)
+        public static int CharCount(string text)
         {
-            return "Chars: " + text.Length;
+            return text.Length;
         }
 
-        public static string WordCount(string text)
+        public static int WordCount(string text)
         {
-            return "Words: " + text.Split(' ').Length;
+            return text.Split(' ').Length;
         }
     }
 }

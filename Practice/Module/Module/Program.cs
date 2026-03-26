@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            string filePath = "C:\\Users\\Ilya\\Documents\\GitHub\\OOPDuiktEducation\\Practice\\Module\\Module\\files\\textPD25.txt";
+            string filePath = "..\\..\\..\\files\\textPD25.txt";
 
             ProcessFile.ProcessFileWithDelegate(filePath, TextOperation.ToUpperCase);
             ProcessFile.ProcessFileWithDelegate(filePath, TextOperation.CharCount);
