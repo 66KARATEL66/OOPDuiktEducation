@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Task2
 
         public void OnMessageSent(object sender, MessageSentEventArgs e)
         {
-            File.AppendAllText(_filePath, e.Message + "\n");
+            File.AppendAllText(_filePath, "Time: " + DateTime.Now + ": " + e.Message + "\n");
         }
     }
 }
