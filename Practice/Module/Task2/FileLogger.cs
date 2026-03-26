@@ -8,11 +8,12 @@ namespace Task2
 {
     public class FileLogger
     {
-        public MessagePublisher _messagePublisher = new MessagePublisher();
+        public MessagePublisher _messagePublisher;
         private readonly string _filePath = "C:\\Users\\Ilya\\Documents\\GitHub\\OOPDuiktEducation\\Practice\\Module\\Module\\files\\logPD25.txt";
 
-        public FileLogger()
+        public FileLogger(MessagePublisher messagePublisher)
         {
+            _messagePublisher = messagePublisher;
             _messagePublisher.MessageSentEvent += OnMessageSent;
         }
 
