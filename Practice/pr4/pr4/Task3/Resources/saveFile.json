@@ -1,0 +1,23 @@
+{
+  "$id": "1",
+  "Name": "Devid",
+  "Books": {
+    "$id": "2",
+    "$values": [
+      {
+        "$id": "3",
+        "Title": "Smth",
+        "Author": {
+          "$ref": "1"
+        }
+      },
+      {
+        "$id": "4",
+        "Title": "Book",
+        "Author": {
+          "$ref": "1"
+        }
+      }
+    ]
+  }
+}
