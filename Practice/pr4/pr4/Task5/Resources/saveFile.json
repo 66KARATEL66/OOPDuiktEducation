@@ -1,0 +1,22 @@
+[
+  {
+    "$type": "Dog",
+    "BarkVolume": 5,
+    "Name": "Dog1"
+  },
+  {
+    "$type": "Dog",
+    "BarkVolume": 1,
+    "Name": "Dog2"
+  },
+  {
+    "$type": "Cat",
+    "Lives": 3,
+    "Name": "Cat1"
+  },
+  {
+    "$type": "Cat",
+    "Lives": 9,
+    "Name": "Cat2"
+  }
+]
