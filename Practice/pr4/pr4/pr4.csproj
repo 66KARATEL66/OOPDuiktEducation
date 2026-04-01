@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="Task1\Resources\" />
     <Folder Include="Task3\Resources\" />
+    <Folder Include="Task4\Resources\" />
   </ItemGroup>
 
 </Project>
