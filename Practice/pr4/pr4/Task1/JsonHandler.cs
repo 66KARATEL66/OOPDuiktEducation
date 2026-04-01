@@ -19,13 +19,10 @@ namespace pr4.Task1
 
         public static void SerializeJson(List<TaskItem> taskItems)
         {
-            if(taskItems.Count != 0)
-            {
-                using (FileStream fs = new FileStream(Path.GetFullPath(path), FileMode.Create))
+            using (FileStream fs = new FileStream(Path.GetFullPath(path), FileMode.Create))
                 {
                     JsonSerializer.Serialize(fs, taskItems, options);
-                }
-            }    
+                }  
         }
 
         public static List<TaskItem> DeserializeJson()

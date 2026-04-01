@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,50 +9,20 @@ namespace pr4.Task1
 {
     internal class Task1
     {
-        List<TaskItem> taskItem;
+        private TaskService service;
+        private ConsoleUI ui;
 
-        public void Example()
+        public void Run()
         {
             Start();
+            ui = new ConsoleUI();
+
             ShowMenu();
-        }
-
-        public void AddTask()
-        {
-            Console.Clear();
-            Console.Write("Enter a Title: ");
-            string title = Console.ReadLine();
-            bool status = GetStatus();
-
-            taskItem.Add(new TaskItem(title, status));
-
-            Console.WriteLine("Task added. Enter to continue..."); Console.ReadKey(true);
-        }
-
-        public void DeleteTask()
-        {
-            Console.Clear();
-            ShowTaskItem();
-            if(GetChoice(taskItem.Count) == -1) 
-            Console.WriteLine("Task deleted. Enter to continue..."); Console.ReadKey(true);
-        }
-
-        public void UpdateStatus()
-        {
-            Console.Clear();
-            ShowTaskItem();
-            Console.WriteLine("To back enter 0");
-            int choice = GetChoice(taskItem.Count, 0);
-
-            if (choice == -1) return;
-
-            taskItem[choice].Update(GetStatus());
-            Console.WriteLine("Task updated. Tap to continue..."); Console.ReadKey(true);
         }
 
         public void ShowMenu()
         {
-            while(true)
+            while (true)
             {
                 Console.Clear();
 
@@ -69,69 +40,90 @@ namespace pr4.Task1
                     Console.WriteLine($"{i + 1}. {menu[i].Title}");
                 }
 
-                int choice = GetChoice(menu.Count);
-                if (taskItem.Any())
-                {
-                    menu[choice].Action();
-                }
-                else
-                {
-
-                    if (menu[choice].Action == DeleteTask || menu[choice].Action == UpdateStatus || menu[choice].Action == ShowTaskItem)
-                    {
-                        Console.Clear();
-                        Console.Write("List of Tasks is empty. Tap to continue..."); Console.ReadKey(true);
-                    }
-                    else
-                    {
-
-                        menu[choice].Action();
-                    }
-                }
+                int choice = ui.GetChoice(menu.Count, 1);
+                menu[choice].Action();
             }
+        }
+
+        public void AddTask()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter 0 to return");
+            string title = ui.ReadTitle();
+            if (title == "0") return;
+
+            bool status = ui.ReadStatus();
+
+            service.Add(title, status);
+
+            Console.WriteLine("Task added. Enter to continue..."); Console.ReadKey(true);
+        }
+
+        public void DeleteTask()
+        {
+            Console.Clear();
+
+            if(service.IsEmpty())
+            {
+                Console.WriteLine("List is empty. Enter to continue ..."); Console.ReadKey(true);
+                return;
+            }
+
+            ui.ShowTasks(service.GetAll());
+            Console.WriteLine("Enter 0 to return");
+            int choice = ui.GetChoice(service.GetAll().Count, 0);
+
+            if (choice == -1) return;
+
+            service.Delete(choice);
+            Console.WriteLine("Task deleted. Enter to continue..."); Console.ReadKey(true);
         }
 
         public void ShowTaskItem()
         {
-            for (int i = 0; i < taskItem.Count; i++)
+            Console.Clear();
+
+            if (service.IsEmpty())
             {
-                Console.WriteLine($"{i + 1}. {taskItem[i].Title} {(taskItem[i].IsCompleted ? "Completed" : "Uncompleted")}");
-                Console.Write("Enter to continue..."); Console.ReadKey(true);
+                Console.WriteLine("List is empty. Enter to continue ..."); Console.ReadKey(true);
+                return;
             }
+
+            ui.ShowTasks(service.GetAll());
+
+            Console.Write("Enter to continue..."); Console.ReadKey(true);
         }
 
-        public int GetChoice(int max, int min = 1)
+        public void UpdateStatus()
         {
-            while (true)
-            {
-                Console.Write("Write choice: ");
+            Console.Clear();
 
-                if (int.TryParse(Console.ReadLine(), out int choice) && choice >= min && choice <= max)
-                {
-                    return choice - 1;
-                }
-            }
-        }
-
-        public bool GetStatus()
-        {
-            while(true)
+            if (service.IsEmpty())
             {
-                Console.Write("Write Status (Completed/Uncompleted): ");
-                string status = Console.ReadLine();
-                if (status == "Completed") return true;
-                else if (status == "Uncompleted") return false;
+                Console.WriteLine("List is empty. Enter to continue ..."); Console.ReadKey(true);
+                return;
             }
+
+            ui.ShowTasks(service.GetAll());
+
+            Console.WriteLine("Enter 0 to return");
+            int choice = ui.GetChoice(service.GetAll().Count, 0);
+            if (choice == -1) return;
+
+            bool status = ui.ReadStatus();
+
+            service.UpdateStatus(choice, status);
+            Console.WriteLine("Task updated. Tap to continue..."); Console.ReadKey(true);
         }
 
         public void Start()
         {
-            taskItem = JsonHandler.DeserializeJson();
+            service = new TaskService(JsonHandler.DeserializeJson());
         }
 
         public void Exit()
         {
-            JsonHandler.SerializeJson(taskItem);
+            JsonHandler.SerializeJson(service.GetAll());
             Environment.Exit(0);
         }
     }

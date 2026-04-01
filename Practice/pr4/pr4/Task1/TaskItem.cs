@@ -16,10 +16,5 @@ namespace pr4.Task1
             Title = title;
             IsCompleted = isCompleted;
         }
-
-        public void Update(bool isCompleted)
-        {
-            IsCompleted = isCompleted;
-        }
     }
 }
