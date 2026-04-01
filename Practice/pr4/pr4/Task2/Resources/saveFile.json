@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Ilya",
+    "Age": 12,
+    "AverageScore": 1
+  },
+  {
+    "Name": "Mira",
+    "Age": 25,
+    "AverageScore": 100
+  },
+  {
+    "Name": "Max",
+    "Age": 8,
+    "AverageScore": 1
+  },
+  {
+    "Name": "Ivan",
+    "Age": 15,
+    "AverageScore": 15
+  },
+  {
+    "Name": "Sofia",
+    "Age": 19,
+    "AverageScore": 87
+  }
+]
