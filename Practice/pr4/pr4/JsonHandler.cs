@@ -44,8 +44,23 @@ namespace pr4
             {
                 return JsonSerializer.Deserialize<T>(content, _options);
             }
-            catch
+            catch (JsonException ex)
             {
+                Console.WriteLine("Invalid JSON format!");
+                Console.WriteLine($"Details: {ex.Message}");
+
+
+                Console.WriteLine("Starting with empty object...");
+                Console.ReadKey(true);
+                return default;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("File may be corrupted or invalid format.");
+                Console.WriteLine($"Details: {ex.Message}");
+
+                Console.WriteLine("Starting with empty object...");
+                Console.ReadKey(true);
                 return default;
             }
         }
