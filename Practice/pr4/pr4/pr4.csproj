@@ -12,6 +12,7 @@
     <Folder Include="Task3\Resources\" />
     <Folder Include="Task4\Resources\" />
     <Folder Include="Task5\Resources\" />
+    <Folder Include="Task6\Resources\" />
   </ItemGroup>
 
 </Project>
