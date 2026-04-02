@@ -6,16 +6,16 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace pr4.Task6
+namespace pr4
 {
-    public class JsonHandler
+    public class JsonHandler // Start using after Task 6
     {
         private string _path;
         private JsonSerializerOptions _options;
 
-        public JsonHandler(string path = null, JsonSerializerOptions options = null)
+        public JsonHandler(string path, JsonSerializerOptions options = null)
         {
-            _path = Path.GetFullPath(path ?? "..\\..\\..\\Task6\\Resources\\saveFile.json");
+            _path = Path.GetFullPath(path);
             _options = options ?? new JsonSerializerOptions
             {
                 WriteIndented = true
@@ -33,7 +33,7 @@ namespace pr4.Task6
         public T? DeserializeJson<T>()
         {
             
-            if (!(File.Exists(_path))) return default;
+            if (!File.Exists(_path)) return default;
 
             Console.WriteLine(_path);
             string content = File.ReadAllText(_path);

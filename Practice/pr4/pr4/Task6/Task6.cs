@@ -12,16 +12,15 @@ namespace pr4.Task6
         Player Player;
         public void Example()
         {
-            JsonHandler = new JsonHandler();
+            JsonHandler = new JsonHandler("..\\..\\..\\Task6\\Resources\\saveFile.json");
             /*Inventory Inventory = new Inventory();
             Inventory.Items.Add("Pistol");
             Inventory.Items.Add("Knife");
 
-            Player Player = new Player { Name = "Kirito", Inventory = Inventory };*/
-
-            /*Console.WriteLine($"{Player.Name} has that items: {Inventory.Items[0]}, {Inventory.Items[1]}");
-
-            JsonHandler.SerializeJson(Player);*/
+            Player Player = new Player { Name = "Kirito", Inventory = Inventory };
+            
+            JsonHandler.SerializeJson(Player);
+             */
 
             this.Player = Deserializetion();
 
