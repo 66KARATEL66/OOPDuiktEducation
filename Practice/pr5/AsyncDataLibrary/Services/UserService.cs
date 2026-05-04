@@ -12,14 +12,12 @@ using AsyncDataLibrary.Infrastructure;
 namespace AsyncDataLibrary.Services
 {
     public class UserService
-    {
-        private string _path;
+    { 
         private IRepository<User> _repo;
 
-        public UserService(IRepository<User> repo, string path)
+        public UserService(IDataSerializer repo, string path)
         {
-            _repo = repo;
-            _path = path;
+            _repo = new Repository<User>(path, repo);
         }
 
         public async Task<Result> Add(string username, string password, string email)

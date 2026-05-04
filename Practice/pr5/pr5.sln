@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pr5", "pr5\pr5.csproj", "{0F688CDF-206D-410C-9454-A40191AF01B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E} = {F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDataLibrary", "AsyncDataLibrary\AsyncDataLibrary.csproj", "{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}"
 EndProject
