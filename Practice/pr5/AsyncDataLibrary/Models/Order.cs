@@ -8,8 +8,8 @@ namespace AsyncDataLibrary.Models
 {
     public class Order
     {
-        Guid id { get; set; }
-        List<Book> books { get; set; }
-        User user { get; set; }
+        public public int id { get; set; }
+        public public List<Book> books { get; set; }
+        public public User user { get; set; }
     }
 }

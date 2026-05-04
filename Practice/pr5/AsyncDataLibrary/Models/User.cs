@@ -8,10 +8,10 @@ namespace AsyncDataLibrary.Models
 {
     public class User
     {
-        Guid id { get; set; }
-        string name { get; set; }
-        string password { get; set; }
-        string email { get; set; }
-        DateTime createdAt { get; set; }
+        public int id { get; set; } = 0;
+        public string username { get; set; }
+        public string password { get; set; }
+        public string email { get; set; }
+        public DateTime createdAt { get; set; }
     }
 }

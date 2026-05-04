@@ -24,6 +24,8 @@ namespace AsyncDataLibrary.Repositories
         public async Task AddAsync(T entity)
         {
             var data = (await GetAllAsync()).ToList();
+            var id = typeof(T).GetProperty("id");
+            id.SetValue(entity, data.Count + 1);
             data.Add(entity);
             _serializer.Serialize(data, _path);
         }
