@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pr5", "pr5\pr5.csproj", "{0F688CDF-206D-410C-9454-A40191AF01B4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E} = {F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncDataLibrary", "AsyncDataLibrary\AsyncDataLibrary.csproj", "{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F688CDF-206D-410C-9454-A40191AF01B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F688CDF-206D-410C-9454-A40191AF01B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F688CDF-206D-410C-9454-A40191AF01B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F688CDF-206D-410C-9454-A40191AF01B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EBD3B6-F2EE-48CC-A4E2-31777CF98F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E59BAC1-7E72-48DF-BF0B-8D7D9CE07532}
+	EndGlobalSection
+EndGlobal
