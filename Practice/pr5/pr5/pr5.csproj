@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0\jsonFiles\book.json" />
+    <Content Include="bin\Debug\net8.0\jsonFiles\order.json" />
+    <Content Include="bin\Debug\net8.0\jsonFiles\user.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AsyncDataLibrary\AsyncDataLibrary.csproj" />
   </ItemGroup>
 

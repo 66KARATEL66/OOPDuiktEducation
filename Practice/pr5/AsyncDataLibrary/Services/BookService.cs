@@ -48,9 +48,9 @@ namespace AsyncDataLibrary.Services
             }
         }
 
-        public async Task<IEnumerable<Book>> GetAll()
-        {
-            return await _repo.GetAllAsync();
-        }
+            public async Task<IEnumerable<Book>> GetAll()
+            {
+                return await _repo.GetAllAsync();
+            }
     }
 }

@@ -24,7 +24,7 @@ namespace AsyncDataLibrary.Services
             {
                 await _repo.AddAsync(new Order
                 {
-                    books = new List<Book>() { book },
+                    books = new List<Book> { book },
                     user = user
                 });
                 return Result.Success();

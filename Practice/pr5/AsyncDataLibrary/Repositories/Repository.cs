@@ -25,15 +25,15 @@ namespace AsyncDataLibrary.Repositories
         {
             var data = (await GetAllAsync()).ToList();
             var id = typeof(T).GetProperty("id");
-            id.SetValue(entity, data.Count + 1);
+            id?.SetValue(entity, data.Count + 1);
             data.Add(entity);
-            _serializer.Serialize(data, _path);
+            await _serializer.Serialize(data, _path);
         }
 
         public async Task DeleteAsync(int id)
         {
             var data = (await GetAllAsync()).Where(e => GetId(e) != id).ToList();
-            _serializer.Serialize(data, _path);
+            await _serializer.Serialize(data, _path);
         }
 
         public async Task<IEnumerable<T>> FindAsync(Func<T, bool> predicate)
@@ -44,7 +44,7 @@ namespace AsyncDataLibrary.Repositories
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _serializer.Deserialize<List<T>>(_path);
+            return await _serializer.Deserialize<List<T>>(_path) ?? new List<T>();
         }
 
         public async Task<T> GetByIdAsync(int id)
